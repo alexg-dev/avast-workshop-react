@@ -3,8 +3,6 @@ import path from 'path'
 import express from 'express'
 import gulp from 'gulp'
 import gutil from 'gulp-util'
-import change from 'gulp-change'
-import crx from 'gulp-crx-pack'
 import jasmine from 'gulp-jasmine'
 import runSequence from 'run-sequence'
 import jasmineReporter from 'jasmine-terminal-reporter'
@@ -13,8 +11,6 @@ import ncu from 'npm-check-updates'
 import leftPad from 'left-pad'
 import cfg from './webpack.config.babel.js'
 
-
-const buildNo = process.env.BUILD_NUMBER
 
 function log (task, err, stats) {
     if (err) {
@@ -31,7 +27,7 @@ gulp.task('build', (done) => {
     })
 })
 
-gulp.task('watch', (done) => {
+gulp.task('start-dev-server', (done) => {
     let server = express()
     server.use(express.static(path.join(__dirname, cfg.ROOT.BUILD)))
 

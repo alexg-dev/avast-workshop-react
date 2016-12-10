@@ -4,8 +4,7 @@
   "description": "Skeleton application for React workshop",
   "scripts": {
     "test": "gulp test",
-    "build": "gulp",
-    "start": "node start.js"
+    "start": "gulp start-dev-server"
   },
   "repository": {
     "type": "git",
@@ -41,8 +40,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
-    "gulp-change": "~1.0.0",
-    "gulp-crx-pack": "^1.0.1",
     "gulp-jasmine": "^2.4.2",
     "gulp-util": "^3.0.7",
     "imports-loader": "~0.6.5",
@@ -54,7 +51,6 @@
     "npm-check-updates": "^2.8.6",
     "postcss-loader": "^1.1.1",
     "raw-loader": "^0.5.1",
-    "react-hot-loader": "^1.3.1",
     "resolve-url-loader": "^1.6.0",
     "run-sequence": "^1.2.2",
     "sinon-chrome": "^2.1.2",
