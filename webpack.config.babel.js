@@ -1,7 +1,5 @@
 import webpack from 'webpack'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import autoprefixer from 'autoprefixer'
 import path from 'path'
 
@@ -32,7 +30,7 @@ export default {
             },
 
             resolve: {
-                extensions: ['', '.js', '.jsx'],
+                extensions: ['', '.js', '.jsx', '.css'],
                 modulesDirectories: ['node_modules']
             },
 
@@ -85,16 +83,15 @@ export default {
                         loader: 'json'
                     },
 
-                    {   test: /\.styl$/,
-                        loader: ExtractTextPlugin.extract('style', 'css?postcss!stylus')
+                    {   test: /\.css$/,
+                        loader: 'style!css'
                     },
 
-                    {   test: /\.ttf(\?.+)?$/,
+                    {   test: /\.(png|woff|woff2|eot|ttf|svg)$/,
                         loader: 'url',
                         query: {
-                            limit: 10000,
-                            mimetype: 'application/octet-stream',
-                            name: '../fonts/[hash].[ext]'
+                            limit: 100000,
+                            name: './[hash].[ext]'
                         }
                     },
 
@@ -104,14 +101,7 @@ export default {
                             limit: 5000,
                             name: '../images/[hash].[ext]'
                         }
-                    },
-
-                    {   test: /\.svg$/,
-                        loader: 'file',
-                        query: {
-                            name: '../images/[hash].[ext]'
-                        }
-                    },
+                    }
                 ]
 
             },
@@ -132,7 +122,6 @@ export default {
                 //     name: 'views-common',
                 //     chunks: ['popup', 'settings']
                 // }),
-                new ExtractTextPlugin('../css/[name].css'),
                 new webpack.DefinePlugin({
                     'process.env.NODE_ENV': '"production"'
                 })
