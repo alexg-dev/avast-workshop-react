@@ -1,0 +1,27 @@
+{
+  // "extends": "airbnb/base",
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": {
+          "resolve": {
+            "extensions": [".js", ".jsx"]
+          }
+        }
+      }
+    }
+  },
+  "rules": {
+  }
+}
