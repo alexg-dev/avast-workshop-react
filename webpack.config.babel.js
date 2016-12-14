@@ -38,35 +38,8 @@ export default {
 
             module: {
                 preLoaders: [
-                    {   test: /\.js$/,
+                    {   test: /\.jsx?$/,
                         loader: 'eslint',
-                        query: {
-                            parser: 'babel-eslint',
-                            ecmaFeatures: {
-                                modules: true
-                            },
-                            env: {
-                                browser: true
-                            },
-                            rules: {
-                                'no-unused-vars': 2,
-                                'no-use-before-define': 2,
-                                'no-shadow-restricted-names': 2,
-                                'comma-dangle': 2,
-                                'no-duplicate-case': 2,
-                                'use-isnan': 2,
-                                'valid-typeof': 2,
-                                'no-eval': 2,
-                                'no-multi-spaces': 2,
-                                'no-script-url': 2,
-                                'yoda': 2,
-                                'no-mixed-spaces-and-tabs': 2,
-                                'no-delete-var': 2,
-                                'no-undefined': 2,
-                                'camelcase': 2,
-                                'no-func-assign': 2
-                            }
-                        },
                         exclude: excludes.concat(path.resolve(__dirname, 'src/js/background/legacy'))
                     }
                 ],
@@ -120,6 +93,11 @@ export default {
                 return [
                     autoprefixer({ browsers: ['last 2 versions'] })
                 ]
+            },
+
+            eslint: {
+                failOnError: false,
+                failOnWarning: false
             },
 
             plugins: [
